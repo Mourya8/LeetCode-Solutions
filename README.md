@@ -40,6 +40,6 @@ Please note that these solutions are primarily for learning purposes and may not
 
 ## Connect with Me
 If you'd like to connect or follow along with my journey, you can find me on:
-- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/sai-mourya-buchi)
+- LinkedIn: [Sai Mourya Buchi](https://www.linkedin.com/in/sai-mourya-buchi)
 
 Happy coding and good luck with your interview preparation! 🚀
