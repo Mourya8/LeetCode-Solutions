@@ -23,15 +23,6 @@ If you're also preparing for technical interviews or just interested in solving 
 3. **Test Yourself**: Attempt to solve the problems on your own before referring to the solutions.
 4. **Contribute**: If you have alternative solutions, optimizations, or better explanations, feel free to contribute by opening a pull request.
 
-## Contributions
-Contributions are welcome! If you have any improvements, such as better solutions, optimizations, or additional explanations, please don't hesitate to contribute. Here's how you can contribute:
-
-1. Fork this repository.
-2. Create a new branch for your changes.
-3. Make your changes and commit them with clear and descriptive commit messages.
-4. Push your changes to your fork.
-5. Open a pull request, detailing the changes you've made and why they should be included.
-
 ## Feedback
 Feedback is crucial for improvement. If you have any suggestions, questions, or concerns, feel free to open an issue or reach out to me directly.
 
