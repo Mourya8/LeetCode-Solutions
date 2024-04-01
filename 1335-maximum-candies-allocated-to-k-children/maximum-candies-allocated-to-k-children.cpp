@@ -15,7 +15,7 @@ public:
         {
             s=0;
             long long mid = (long long)((right+left+1)/2);
-            cout <<mid<<endl;
+            //cout <<mid<<endl;
             for(auto& i: candies )
             {
                 s+=i/mid;
