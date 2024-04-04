@@ -1,26 +1,5 @@
 from itertools import permutations
 class Solution:
-    def next_permutation(s):
-        # Find the largest index k such that s[k] < s[k+1]
-        k = len(s) - 2
-        while k >= 0 and s[k] >= s[k + 1]:
-            k -= 1
-        if k == -1:
-            return None  # Last permutation reached, no next permutation
-    
-        # Find the largest index l greater than k such that s[k] < s[l]
-        l = len(s) - 1
-        while s[l] <= s[k]:
-            l -= 1
-    
-        # Swap s[k] and s[l]
-        s = list(s)
-        s[k], s[l] = s[l], s[k]
-    
-        # Reverse the sequence from s[k+1:] to get the next permutation
-        s[k + 1:] = reversed(s[k + 1:])
-    
-        return ''.join(s)
 
 
     def kthSmallestPath(self, destination: List[int], k: int) -> str:
