@@ -1,32 +1,19 @@
 class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
-        map<int,int> m;
-        for(int i=0;i<nums.size();i++)
+        ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL);
+        
+        int n = nums.size();
+        nums.push_back(0);
+        int smallest = n;
+        for (int i = 0 ; i < n; ++i)
         {
-            if(nums[i]>0 && m.find(nums[i])==m.end())
-                m[nums[i]]=i;
+            while(nums[i] > 0 && nums[i] <= n && nums[i] != nums[nums[i]])
+                swap(nums[i], nums[nums[i]]);
         }
-         auto start = m.begin();
-         if(start->first!=1)
-         {
-            return 1;
-         }
-    auto end = m.begin();
-
-    // Move the 'end' iterator ahead by 2 positions
-    std::advance(end, 1);
-
-    // Iterate from start to end using two pointers
-    while (end != m.end()) {
-        if (start->first+1!=end->first)
-        {
-            return start->first+1;
-        }
-        ++start;
-        ++end;
-    }
-
-    return m.size()+1;
+        for (int i = 1; i <= n; ++i)
+            if (nums[i] != i)
+                return i;
+        return n + 1;
     }
 };
