@@ -4,13 +4,6 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def getlength(self, head):
-        length=0
-        while head is not None:
-            length+=1
-            head=head.next
-
-        return length
 
     def reverseInK(self, head, k, length):
         if k>length:
@@ -35,8 +28,15 @@ class Solution:
         
 
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        temp=head
         if head is None:
             return None
 
-        length=self.getlength(head)
+        length=0
+        while temp is not None:
+            length+=1
+            temp=temp.next
+
+        print(length)
+        
         return self.reverseInK(head, k , length)
