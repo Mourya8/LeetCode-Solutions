@@ -15,7 +15,7 @@ public:
                 if(s.top()>0&&remain<0)
                 {
                     while(!s.empty()&&(s.top()>0&&remain<0)){
-                        cout<<s.top()<<" "<<remain<<endl;
+                        //cout<<s.top()<<" "<<remain<<endl;
                         int temp = s.top();
                         s.pop();
 
