@@ -8,14 +8,8 @@ public:
             {
                 if(level>0)level--;
             }
-            else if(logs[i][0]=='.'&&logs[i][1]=='/')
-            {
-                continue;                
-            }
-            else
-            {
-                level++;
-            }
+            else if(logs[i][0]=='.'&&logs[i][1]=='/')continue;
+            else level++;
         }
         return level;
     }
