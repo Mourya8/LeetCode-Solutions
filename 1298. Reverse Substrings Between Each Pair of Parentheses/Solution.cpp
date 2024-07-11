@@ -3,11 +3,12 @@ public:
     string reverseParentheses(string s) {
         //string ret="";
         stack <char> st;
+        string temp="";
         for (int i=0;i<s.size();i++)
         {
             if(s[i]==')')
             {
-                string temp="";
+                temp="";
                 while(st.top()!='(')
                 {
                     temp+=st.top();
