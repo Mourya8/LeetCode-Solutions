@@ -1,19 +1,22 @@
 class Solution {
 public:
+    bool isValid(vector<vector<char>>& board, int row, int col, char c) {
+        for(int i = 0; i < 9; i++) {
+            if(board[i][col] == c) return false;
+            if(board[row][i] == c) return false;
+            if(board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == c) return false;
+        }
+        return true;
+    }
+    
     bool isValidSudoku(vector<vector<char>>& board) {
-        vector<unordered_map<char, bool>> rows(9);
-        vector<unordered_map<char, bool>> cols(9);
-        vector<unordered_map<char, bool>> boxes(9);
-        for (int r = 0; r < 9; ++r) {
-            for (int c = 0; c < 9; ++c) {
-                if (board[r][c] != '.') {
-                    char num = board[r][c];
-                    int boxIndex = (r / 3) * 3 + (c / 3);
-                    if (rows[r][num] || cols[c][num] || boxes[boxIndex][num]) {
-                        return false;}
-                    rows[r][num] = true;
-                    cols[c][num] = true;
-                    boxes[boxIndex][num] = true;
+        for(int i = 0; i < 9; i++) {
+            for(int j = 0; j < 9; j++) {
+                if(board[i][j] != '.') {
+                    char c = board[i][j];
+                    board[i][j] = '.';
+                    if(!isValid(board, i, j, c)) return false;
+                    board[i][j] = c;
                 }
             }
         }
