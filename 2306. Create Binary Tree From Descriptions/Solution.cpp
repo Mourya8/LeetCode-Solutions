@@ -58,7 +58,7 @@ public:
                     }
                 }
         }
-        for (auto it = check.begin(); it != check.end(); ++it) 
+        for (auto it = check.begin(); it != check.end(); it++) 
         {
             //cout<<it->first<<endl;
             temp=m[it->first];
