@@ -19,10 +19,8 @@ public:
         {
             m[to_delete[i]]=1;
         }
-        if(m.find(root->val)==m.end())
-        {
-            r.push_back(root);
-        }
+        if(m.find(root->val)==m.end()) r.push_back(root);
+
         q.push(root);
         while(!q.empty())
         {
@@ -32,34 +30,22 @@ public:
             {
                 if(temp->left)
                 {
-                    if(m.find(temp->left->val)==m.end())
-                    {
-                        r.push_back(temp->left);
-                    }
+                    if(m.find(temp->left->val)==m.end()) r.push_back(temp->left);
                 }
                 if(temp->right)
                 {
-                    if(m.find(temp->right->val)==m.end())
-                    {
-                        r.push_back(temp->right);
-                    }
+                    if(m.find(temp->right->val)==m.end()) r.push_back(temp->right);
                 }
             }
             if(temp->left)
             {
                 q.push(temp->left);
-               if(m.find(temp->left->val)!=m.end())
-                {
-                    temp->left=NULL;
-                }
+               if(m.find(temp->left->val)!=m.end()) temp->left=NULL;
             }
             if(temp->right)
             {
                 q.push(temp->right);
-               if(m.find(temp->right->val)!=m.end())
-                {
-                    temp->right=NULL;
-                }
+               if(m.find(temp->right->val)!=m.end()) temp->right=NULL;
             }
         }
         return r;
