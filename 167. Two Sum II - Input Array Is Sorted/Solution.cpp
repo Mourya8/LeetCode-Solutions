@@ -1,47 +1,38 @@
 class Solution {
 public:
-    int bs(vector<int> numbers, int x)
-    {
-        int l=0;
-        int r=numbers.size()-1;
-        int mid;
-        while(l<r)
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        
+        vector<int> ans;
+
+        int s = 0;
+        int e = numbers.size() - 1;
+        int sum = 0;
+
+
+        while(s < e)
         {
-            mid = l+(r-l)/2;
-            if(numbers[mid]==x) return mid;
-            else if(numbers[mid]>x)
+            int mid = s + (e - s) / 2;
+
+            sum = numbers[s] + numbers[e];
+            
+            if(sum == target)
             {
-                r=mid-1;
+                ans.push_back(s+1);
+                ans.push_back(e+1);
+                return ans;
+            }
+            else if(sum > target)
+            {
+                e--;
             }
             else
             {
-                l=mid+1;
+                s++;
             }
         }
-        return l;
-    }
+        
 
-    vector<int> twoSum(vector<int>& numbers, int target) {
-        vector <int> r;
-        for(int i=0;i<numbers.size();i++)
-        {
-            if(target-numbers[i]==numbers[i])
-            {
-                if(i+1<numbers.size() && numbers[i]==numbers[i+1]) 
-                {
-                    r.push_back(i+1);
-                    r.push_back(i+2);
-                    return r;
-                }
-            }
-            else if(binary_search(numbers.begin(),numbers.end(),target - numbers[i]))
-            {
-                int temp=bs(numbers, target-numbers[i]);
-                r.push_back(i+1);
-                r.push_back(temp+1);
-                break;
-            }
-        }
-        return r;
+        return ans;
+
     }
 };
