@@ -20,7 +20,7 @@ public:
             //cout<<temp<<endl;
             v.push_back(make_pair(temp,i));
         }
-        sort(v.begin(),v.end(),compare);
+        sort(v.begin(),v.end());
         vector <int> r;
         for(int i=0;i<nums.size();i++)
         {
