@@ -5,9 +5,7 @@ public:
         int count =0;
         for(int i=0;i<details.size();i++ )
         {
-            temp=temp+details[i][11]+details[i][12];
-            //cout<<temp<<endl;
-            int t = stoi(temp);
+            int t = stoi(details[i].substr(11, 2));
             if(t>60) count++;
             temp="";
         }
