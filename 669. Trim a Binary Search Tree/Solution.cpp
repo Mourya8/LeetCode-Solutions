@@ -1,14 +1,17 @@
 class Solution {
 public:
-    TreeNode* trimBST(TreeNode* root, int L, int R) {
-        if (!root) return root;
-        if (root->val >= L && root->val <= R) {
-            root->left = trimBST(root->left, L, R);
-            root->right = trimBST(root->right, L, R);
-            return root;
+    TreeNode* trimBST(TreeNode* root, int low, int high) {
+        if(!root) return nullptr;
+        
+        if(root->val < low) {
+            return trimBST(root->right, low, high);
+        } else if (root->val > high) {
+            return trimBST(root->left, low, high);
         }
-        if (root->val < L)
-            return trimBST(root->right, L, R);
-        return trimBST(root->left, L, R);
+        
+        root->left = trimBST(root->left, low, high);
+        root->right = trimBST(root->right, low, high);
+        
+        return root;
     }
 };
