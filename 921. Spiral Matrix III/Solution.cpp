@@ -8,6 +8,7 @@ public:
         int counter = 2;
         int length = 1;
         int d=0;
+        int tempLen;
         while(r.size()<=total)
         {
             if(counter==0)
@@ -15,7 +16,7 @@ public:
                 counter=2;
                 length+=1;
             }
-            int tempLen=length;
+            tempLen=length;
             d=d%4;
             while(tempLen>0)
             {
