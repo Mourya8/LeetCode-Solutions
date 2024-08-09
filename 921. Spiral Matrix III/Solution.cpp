@@ -23,7 +23,6 @@ public:
                 cStart = cStart+directions[d][1];
                 if(rStart>=0 && rStart<rows && cStart>=0 && cStart<cols)
                 {
-                    //cout<<temp[0]+directions[d][0]<<" "<<temp[1]+directions[d][1]<<endl;
                     r.push_back({rStart,cStart});
                 }
                 if(r.size()==total) return r;
