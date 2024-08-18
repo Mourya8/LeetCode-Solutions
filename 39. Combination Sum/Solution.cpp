@@ -4,12 +4,7 @@ public:
     {
         if(sum==target)
         {
-            // sort(s.begin(),s.end());
-            // if(m.find(s)==m.end())
-            // {
-                r.push_back(s);
-            //     m[s]=1;
-            // }
+            r.push_back(s);
             return;
         }
         else if(sum>target) return;
@@ -25,7 +20,6 @@ public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) 
     {
         vector<vector<int>> r;
-        //map<vector<int>, bool> m;
         int index = 0;
         int sum =0;
         helper(candidates, sum,target, {}, r, index);
