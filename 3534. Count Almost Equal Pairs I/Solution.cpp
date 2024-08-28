@@ -1,28 +1,29 @@
 class Solution {
 public:
-    int fun(vector<int>&nums,int a,int b){
-    if(nums[a]==nums[b])return 1;
-    string c=to_string(nums[a]);
-    for(int i=0;i<c.size();i++){
-        for(int j=i+1;j<c.size();j++){
-            string d=c;
-            swap(d[i],d[j]);
-            if(stoi(d)==nums[b]){
-                return 1;
-            }
+bool check(int num1,int num2){
+    string first=to_string(num1);
+    string second=to_string(num2);
+    if(first.length()<second.length()) first=string(second.length()-first.length(),'0')+first;
+    else if(second.length()<first.length()) second=string(first.length()-second.length(),'0')+second;
+    int diff=0;
+    int a=-1,b=-1;
+    for(int i=0;i<first.length();i++){
+        if(first[i]!=second[i]){
+            diff++;
+            if(diff==1) a=i;
+            else if(diff==2) b=i;
+            else return false;
         }
-    }
-    return 0;
-    }
+    }if(diff==2) swap(first[a],first[b]);
+    return first==second;
+
+}
     int countPairs(vector<int>& nums) {
         int count=0;
-        for(int i=0;i<nums.size()-1;i++){
+        for(int i=0;i<nums.size();i++){
             for(int j=i+1;j<nums.size();j++){
-                 if(fun(nums,i,j) || fun(nums,j,i)){
-                    count++;
-                 }
+                if(nums[i]==nums[j] || check(nums[i],nums[j])) count++;
             }
-        }
-        return count;
+        }return count;
     }
 };
