@@ -25,7 +25,7 @@ public:
         
     }
 
-    void allExist(vector<vector<int>>& grid, map <pair<int,int>, bool> &m, queue <pair<int,int>> &q, bool &b)
+    void allExist(vector<vector<int>>& grid, vector<vector<int>>& grid1, queue <pair<int,int>> &q, bool &b)
     {
         int x, y ;
         while(!q.empty())
@@ -39,7 +39,7 @@ public:
                 {
                     if(grid[x+d[i][0]][y+d[i][1]]==1)
                     {
-                        if(m.find({x+d[i][0],y+d[i][1]})==m.end()) b = 0;
+                        if(grid1[x+d[i][0]][y+d[i][1]]!=1) b = 0;
                         grid[x+d[i][0]][y+d[i][1]]=2;
                         q.push({x+d[i][0],y+d[i][1]});
                     }
@@ -54,18 +54,18 @@ public:
         vector<pair<int,int>> v;
         queue <pair<int,int>> q;
         int count =0;
-        for(int i=0;i<grid1.size();i++)
-        {
-            for(int j=0;j<grid1[0].size();j++)
-            {
-                if(grid1[i][j]==1)
-                {
-                    q.push({i,j});
-                    grid1[i][j]=2;
-                    mapIsland(grid1,m,q);
-                }
-            }
-        }
+        // for(int i=0;i<grid1.size();i++)
+        // {
+        //     for(int j=0;j<grid1[0].size();j++)
+        //     {
+        //         if(grid1[i][j]==1)
+        //         {
+        //             q.push({i,j});
+        //             grid1[i][j]=2;
+        //             mapIsland(grid1,m,q);
+        //         }
+        //     }
+        // }
         bool b = 1;
 
         for(int i=0;i<grid2.size();i++)
@@ -77,8 +77,8 @@ public:
                     b=1;
                     q.push({i,j});
                     grid2[i][j]=2;
-                    if(m.find({i,j})==m.end()) b = 0;
-                    allExist(grid2,m,q,b);
+                    if(grid1[i][j]!=1) b = 0;
+                    allExist(grid2,grid1,q,b);
                     if(b) 
                     {
                         //cout<< i <<" "<<j<<endl;
