@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* modifiedList(vector<int>& nums, ListNode* head) {
-        map<int,bool> m;
+        unordered_map<int,bool> m;
         for(int i=0;i<nums.size();i++)
         {
             m[nums[i]]=1;
