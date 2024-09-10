@@ -23,17 +23,10 @@ public:
             if(m[v[t]]==0) m.erase(v[t]);
             currentElements--;
         }
-        // cout<<"============"<<endl;
-
-        // for (auto it = m.begin(); it != m.end(); ++it) {
-        //     cout << "Key: " << it->first << ", Value: " << it->second << endl;
-        // }
     }
     
     int calculateMKAverage() {
         if(currentElements<M) return -1;
-
-        
 
         auto it=m.begin();
         long long tempSum=sum;
