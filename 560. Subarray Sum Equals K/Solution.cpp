@@ -10,7 +10,6 @@ public:
             if(sum==k) count++;
             int temp=sum-k;
             count+=m[temp];
-
             m[sum]++;
         }
 
