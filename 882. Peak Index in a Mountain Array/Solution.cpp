@@ -4,9 +4,9 @@ public:
         int l = 0;
         int r = arr.size();
         int mid = l+(r-l)/2;
-        while(1)
+        while(!(arr[mid-1]<arr[mid] && arr[mid]>arr[mid+1]))
         {
-            if(arr[mid-1]<arr[mid] && arr[mid]>arr[mid+1]) break;
+            // if(arr[mid-1]<arr[mid] && arr[mid]>arr[mid+1]) break;
             if(arr[mid-1]<arr[mid])
             {
                 l=mid;
