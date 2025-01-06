@@ -1,17 +1,33 @@
 class Solution {
 public:
     vector<int> minOperations(string boxes) {
-        vector <int> a(boxes.size(),0);
-        for(int i=0;i<boxes.size();i++)
-        {
-            for(int j=0;j<boxes.size();j++)
-            {
-                if(i!=j && boxes[j]=='1')
-                {
-                    a[i]+=abs(i-j);
-                }
-            }
+        int n = boxes.size();
+    vector<int> answer(n, 0);
+
+    int count = 0;  // Count of balls to the left
+    int operations = 0;
+
+    // Left-to-right pass
+    for (int i = 0; i < n; i++) {
+        answer[i] += operations;
+        if (boxes[i] == '1') {
+            count++;
         }
-        return a;
+        operations += count;
+    }
+
+    count = 0;  // Count of balls to the right
+    operations = 0;
+
+    // Right-to-left pass
+    for (int i = n - 1; i >= 0; i--) {
+        answer[i] += operations;
+        if (boxes[i] == '1') {
+            count++;
+        }
+        operations += count;
+    }
+
+    return answer;
     }
 };
