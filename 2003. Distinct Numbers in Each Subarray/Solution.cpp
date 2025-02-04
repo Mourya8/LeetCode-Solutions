@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> distinctNumbers(vector<int>& nums, int k) {
-        map<int,int> m;
+        unordered_map<int,int> m;
         vector<int> ans;
         for(int i=0;i<k;i++)
         {
