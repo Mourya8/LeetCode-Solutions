@@ -1,7 +1,7 @@
 class Solution {
 public:
     int numOfSubarrays(vector<int>& arr) {
-        int even = 0;
+        int even = 1;
         int mod = 1000000007;
         int odd =0;
         int sum =0;
@@ -12,7 +12,7 @@ public:
             if(sum%2==1)
             {
                 odd++;
-                count = count + (even)+1;
+                count = count + (even);
                 count = count % mod;
             }
             else
