@@ -44,6 +44,6 @@ public:
             mid = (l + r) / 2.0; 
         }
 
-        return (l + r) / 2.0;
+        return mid;
     }
 };
