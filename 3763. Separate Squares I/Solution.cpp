@@ -13,9 +13,9 @@ public:
         
         
         const double EPS = 1e-5; 
-        
+        double mid = (l + r) / 2.0; 
         while (r - l > EPS) {
-            double mid = (l + r) / 2.0; 
+            
             double below = 0; 
             double above = 0;
 
@@ -41,6 +41,7 @@ public:
             } else {
                 r = mid; 
             }
+            mid = (l + r) / 2.0; 
         }
 
         return (l + r) / 2.0;
