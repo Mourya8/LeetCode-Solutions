@@ -11,6 +11,7 @@ public:
         for(int i=0;i<2;i++)
         {
             solve(s,temp+t[i],r,n);
+            if(r!="") return;
         }
         return;
     }
