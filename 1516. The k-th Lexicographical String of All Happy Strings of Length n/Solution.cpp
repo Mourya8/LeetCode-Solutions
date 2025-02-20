@@ -1,10 +1,11 @@
 class Solution {
 public:
-    void helper(int n,string temp, vector <string> &v)
+    void helper(int n,string temp, string &r,int &k)
     {
         if(temp.size()==n)
         {
-            v.push_back(temp);
+            k--;
+            if(k==0) r = temp;
             return;
         }
         string s ="abc";
@@ -15,11 +16,11 @@ public:
                 if(temp[temp.size()-1]==s[i]) continue;
                 else
                 {
-                    helper(n,temp+s[i],v);
+                    helper(n,temp+s[i],r,k);
                 }
             }
             else{
-                helper(n,temp+s[i],v);
+                helper(n,temp+s[i],r,k);
             }
         }
         return;
@@ -32,9 +33,8 @@ public:
             total = total*2;
         }
         if(k>total) return "";
-        vector<string> v;
-        helper(n,"",v);
-        sort(v.begin(),v.end());
-        return v[k-1];
+        string r="";
+        helper(n,"",r,k);
+        return r;
     }
 };
